@@ -1,7 +1,8 @@
 import { useState } from "react";
 import IngredientsComponent from "./IngredientsComponent";
+import icon from './link.png';
 
-function RecipesComponent({label, image, calories, ingredients}) {
+function RecipesComponent({label, image, calories, ingredients, link}) {
 
     const [showIngredients, setShowIngredients] = useState(false);
 
@@ -12,12 +13,16 @@ function RecipesComponent({label, image, calories, ingredients}) {
     return(
         
         <div className="card">
-            <div className="container">
+            <div className="container" >
                 <img className="image" src={image} alt="recipe" />
             </div>
 
             <div className="container">
-                <h3>{label}</h3>
+                <h3>{label}
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                        <img className="icon" src={icon} alt="link" title="Full Recipe" />
+                    </a>
+                </h3>
             </div>
 
             <div className="container">
@@ -31,6 +36,9 @@ function RecipesComponent({label, image, calories, ingredients}) {
 
             <div>
                 {showIngredients? <IngredientsComponent ingredients={ingredients}/> : null}
+            </div>
+
+            <div>
             </div>
 
         </div>

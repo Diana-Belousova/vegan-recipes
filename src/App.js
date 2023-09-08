@@ -51,6 +51,7 @@ function App() {
           image={element.recipe.image}
           calories={element.recipe.calories} 
           ingredients={element.recipe.ingredientLines}
+          link={element.recipe.url}
           />
         ))}
       </div>
